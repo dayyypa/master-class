@@ -45,7 +45,7 @@ const Box = styled.div`
 function App() {
 	return (
 		<Wrapper>
-			<Title>Hi, Im dayul fa</Title>
+			<Title>Hi, Im dayul father</Title>
 		</Wrapper>
 	);
 }
