@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ThemeProvider } from 'styled-components';
 import App from './App';
+import { ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme } from './theme';
 
-const darkTheme = {
-	textColor: 'whitesmoke',
-	backgroundColor: '#111'
-};
+// const darkTheme = {
+// 	textColor: 'whitesmoke',
+// 	backgroundColor: '#111'
+// };
 
-const lightTheme = {
-	textColor: '#111',
-	backgroundColor: 'whitesmoke'
-};
+// const lightTheme = {
+// 	textColor: '#111',
+// 	backgroundColor: 'whitesmoke'
+// };
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
