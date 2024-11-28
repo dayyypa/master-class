@@ -66,7 +66,9 @@ interface CoinInterface {
 function Coins() {
 	const [coins, setCoins] = useState<CoinInterface[]>([]);
 	const [loading, setLoading] = useState(true);
+
 	useEffect(() => {
+		//coin list api call
 		(async () => {
 			const response = await fetch('https://api.coinpaprika.com/v1/coins');
 			const json = await response.json();
