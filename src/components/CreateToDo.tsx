@@ -1,23 +1,37 @@
 import { useForm } from 'react-hook-form';
-import { useRecoilState } from 'recoil';
-import { toDoState } from 'src/atoms';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { IToDo, toDoState } from 'src/atoms';
 
 interface IForm {
-	toDo: string;
+	toDoInput: string;
 }
 
 function CreateTodo() {
-	const [toDo, setToDos] = useRecoilState(toDoState);
+	const setToDos = useSetRecoilState(toDoState);
+
 	const { register, handleSubmit, setValue } = useForm<IForm>();
-	const handleValid = ({ toDo }: IForm) => {
-		setToDos((oldToDos) => [{ text: toDo, id: Date.now(), category: 'TO_DO' }, ...oldToDos]);
-		setValue('toDo', '');
+
+	const handleValid = ({ toDoInput }: IForm) => {
+		const newTodo: IToDo = { text: toDoInput, id: Date.now(), category: 'TO_DO' };
+
+		setToDos((oldToDos) => [newTodo, ...oldToDos]);
+		// setToDos((old) => [...old, newTodo]);
+
+		setValue('toDoInput', '');
 	};
+	// const [list, setList] = useState<string[]>([]);
+	// // list = ['b', 'a'] --> ['c','b','a']
+	// setList((oldList)=>{
+	//
+	// 	return ['c',...oldList] // ['c', 'b', 'a']
+	// })
+	// setList((oldList) => ['c', ...oldList])
+	// setList(['c'])
 
 	return (
 		<form onSubmit={handleSubmit(handleValid)}>
 			<input
-				{...register('toDo', {
+				{...register('toDoInput', {
 					required: 'Please write a To Do'
 				})}
 				placeholder="Write a to do"
