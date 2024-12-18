@@ -47,6 +47,7 @@
 		]
 	},
 	"devDependencies": {
+		"@types/react-beautiful-dnd": "^13.1.8",
 		"@types/react-helmet": "^6.1.11",
 		"@types/react-query": "^1.2.8",
 		"@types/react-router-dom": "^5.3.3",
